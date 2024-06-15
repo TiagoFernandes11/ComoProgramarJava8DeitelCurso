@@ -4,24 +4,24 @@ import lombok.Data;
 
 @Data
 public class CommissionEmployee {
-    private final String fisrtName;
+    private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;
     private double grossSales;
-    private double commisionRate;
+    private double commissionRate;
 
-    public CommissionEmployee(String fisrtName, String lastName, String socialSecurityNumber, double grossSales, double commisionRate) {
+    public CommissionEmployee(String firstName, String lastName, String socialSecurityNumber, double grossSales, double commissionRate) {
         if (grossSales < 0.0) {
             throw new IllegalArgumentException("Gross sales must be >=0");
         }
-        if (commisionRate <= 0 || commisionRate >= 1) {
+        if (commissionRate <= 0 || commissionRate >= 1) {
             throw new IllegalArgumentException("CommissionRate must be > 0 and < 1.0");
         }
-        this.fisrtName = fisrtName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.socialSecurityNumber = socialSecurityNumber;
         this.grossSales = grossSales;
-        this.commisionRate = commisionRate;
+        this.commissionRate = commissionRate;
     }
 
     public void setGrossSales(double grossSales) {
@@ -31,21 +31,21 @@ public class CommissionEmployee {
         this.grossSales = grossSales;
     }
 
-    public void setCommisionRate(double commisionRate) {
-        if (commisionRate <= 0 || commisionRate >= 1) {
+    public void setCommissionRate(double commissionRate) {
+        if (commissionRate <= 0 || commissionRate >= 1) {
             throw new IllegalArgumentException("CommissionRate must be > 0 and < 1.0");
         }
-        this.commisionRate = commisionRate;
+        this.commissionRate = commissionRate;
     }
 
     public double earnings() {
-        return this.commisionRate * this.grossSales;
+        return this.commissionRate * this.grossSales;
     }
 
     @Override
     public String toString() {
         return String.format("%s: %s %s%n%s: %s%n%s: %.2f%n%s: %.2f", "commission employee",
-                fisrtName, lastName, "social security number", socialSecurityNumber, "gross sales",
-                grossSales, "commmision rate", commisionRate);
+                firstName, lastName, "social security number", socialSecurityNumber, "gross sales",
+                grossSales, "commmision rate", commissionRate);
     }
 }

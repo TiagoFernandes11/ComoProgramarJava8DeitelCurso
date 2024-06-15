@@ -1,7 +1,9 @@
 package livro;
 
+import livro.cap09.Tester;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Tester.main(new String[0]);
     }
 }
