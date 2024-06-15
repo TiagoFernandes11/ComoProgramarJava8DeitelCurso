@@ -1,4 +1,4 @@
-package livro.cap10;
+package livro.cap09.classes;
 
 import lombok.Data;
 
