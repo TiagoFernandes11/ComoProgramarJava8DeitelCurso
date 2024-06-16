@@ -1,9 +1,10 @@
 package livro.cap10.classes;
 
+import livro.cap10.interfaces.Payable;
 import lombok.Data;
 
 @Data
-public abstract class Employee {
+public abstract class Employee implements Payable {
     private final String firstName;
     private final String lastName;
     private final String socialSecurityNumber;

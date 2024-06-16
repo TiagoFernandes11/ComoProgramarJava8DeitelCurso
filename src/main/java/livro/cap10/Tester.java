@@ -1,6 +1,8 @@
 package livro.cap10;
 
 import livro.cap10.classes.*;
+import livro.cap10.interfaces.Invoice;
+import livro.cap10.interfaces.Payable;
 
 public class Tester {
     public static void main(String[] args) {
@@ -9,16 +11,18 @@ public class Tester {
         ComissionEmployee commissionEmployee = new ComissionEmployee("Sue", "Jones", "333-33-3333", 10000, 0.06);
         BasePlusCommisionEmployee basePlusCommisionEmployee = new BasePlusCommisionEmployee("Bob", "Lewis", "444-44-4444", 5000, 0.04, 300);
 
-        Employee[] employees = new Employee[4];
+        Payable[] payables = new Payable[6];
 
-        employees[0] = salariedEmployee;
-        employees[1] = hourlyEmployee;
-        employees[2] = commissionEmployee;
-        employees[3] = basePlusCommisionEmployee;
+        payables[0] = salariedEmployee;
+        payables[1] = hourlyEmployee;
+        payables[2] = commissionEmployee;
+        payables[3] = basePlusCommisionEmployee;
+        payables[4] = new Invoice("01234", "seat", 2, 375.00);
+        payables[5] = new Invoice("56789", "tire", 4, 79.95);
 
-        for(Employee currentEmployee: employees){
-            System.out.println(currentEmployee);
-            System.out.println("Earnings: " + currentEmployee.earnings() + "\n");
+        for(Payable currentPayable: payables){
+            System.out.println(currentPayable);
+            System.out.println("Earnings: " + currentPayable.getPaymentAmount() + "\n");
         }
     }
 }
