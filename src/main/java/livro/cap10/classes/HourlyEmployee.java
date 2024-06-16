@@ -4,14 +4,33 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class HourlyEmployee extends Employee {
     private double wage;
     private double hours;
 
     public HourlyEmployee(String firstName, String lastName, String socialSecurityNumber, double wage, double hours) {
         super(firstName, lastName, socialSecurityNumber);
+        if(wage < 0.0){
+            throw new IllegalArgumentException("Wage must be > 0");
+        }
+        if(hours < 0 || hours > 168){
+            throw new IllegalArgumentException("hours must be >= 0 and <= 168");
+        }
         this.wage = wage;
+        this.hours = hours;
+    }
+
+    public void setWage(double wage) {
+        if(wage < 0.0){
+            throw new IllegalArgumentException("Wage must be > 0");
+        }
+        this.wage = wage;
+    }
+
+    public void setHours(double hours) {
+        if(hours < 0 || hours > 168){
+            throw new IllegalArgumentException("hours must be >= 0 and <= 168");
+        }
         this.hours = hours;
     }
 
